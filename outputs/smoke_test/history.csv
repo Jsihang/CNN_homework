@@ -1,0 +1,2 @@
+epoch,d_loss,g_loss,seconds,gan_type
+1,1.080322,2.544113,1.75,dcgan

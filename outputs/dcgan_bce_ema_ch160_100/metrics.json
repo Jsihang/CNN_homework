@@ -1,0 +1,13 @@
+{
+  "checkpoint": "outputs/dcgan_bce_ema_ch160_100/checkpoints/latest.pt",
+  "num_samples": 5000,
+  "feature_dim": 2048,
+  "model_type": "unconditional",
+  "arch": "dcgan",
+  "generator_state": "ema_generator",
+  "inception_status": "pretrained",
+  "fid": 32.216295387647854,
+  "inception_score_mean": 5.869453430175781,
+  "inception_score_std": 0.24250948429107666,
+  "note": "Use pretrained Inception for report numbers. untrained_debug_only is not a valid final metric."
+}

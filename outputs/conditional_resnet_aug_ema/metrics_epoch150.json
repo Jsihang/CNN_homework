@@ -1,0 +1,13 @@
+{
+  "checkpoint": "outputs/conditional_resnet_aug_ema/checkpoints/epoch_150.pt",
+  "num_samples": 5000,
+  "feature_dim": 2048,
+  "model_type": "conditional",
+  "arch": "resnet",
+  "generator_state": "ema_generator",
+  "inception_status": "pretrained",
+  "fid": 66.54860858859915,
+  "inception_score_mean": 4.293833255767822,
+  "inception_score_std": 0.13406120240688324,
+  "note": "Use pretrained Inception for report numbers. untrained_debug_only is not a valid final metric."
+}

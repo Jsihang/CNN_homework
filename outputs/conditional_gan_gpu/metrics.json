@@ -1,0 +1,13 @@
+{
+  "checkpoint": "outputs/conditional_gan_gpu/checkpoints/latest.pt",
+  "num_samples": 5000,
+  "feature_dim": 2048,
+  "model_type": "conditional",
+  "arch": "cnn",
+  "generator_state": "generator",
+  "inception_status": "pretrained",
+  "fid": 45.27097130449849,
+  "inception_score_mean": 4.723563194274902,
+  "inception_score_std": 0.15696831047534943,
+  "note": "Use pretrained Inception for report numbers. untrained_debug_only is not a valid final metric."
+}

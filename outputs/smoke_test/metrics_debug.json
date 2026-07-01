@@ -1,0 +1,10 @@
+{
+  "checkpoint": "outputs/smoke_test/checkpoints/latest.pt",
+  "num_samples": 16,
+  "feature_dim": 64,
+  "inception_status": "untrained_debug_only",
+  "fid": 8.665451997478905e-13,
+  "inception_score_mean": 1.0,
+  "inception_score_std": 0.0,
+  "note": "Use pretrained Inception for report numbers. untrained_debug_only is not a valid final metric."
+}

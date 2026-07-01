@@ -1,0 +1,13 @@
+{
+  "checkpoint": "outputs/dcgan_gpu/checkpoints/latest.pt",
+  "num_samples": 5000,
+  "feature_dim": 2048,
+  "model_type": "unconditional",
+  "arch": "dcgan",
+  "generator_state": "generator",
+  "inception_status": "pretrained",
+  "fid": 38.28963874939434,
+  "inception_score_mean": 5.345892906188965,
+  "inception_score_std": 0.1585230827331543,
+  "note": "Use pretrained Inception for report numbers. untrained_debug_only is not a valid final metric."
+}

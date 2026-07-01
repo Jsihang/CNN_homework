@@ -1,0 +1,209 @@
+{
+  "canvas": {
+    "width": 1100,
+    "height": 560
+  },
+  "title": "Training and Evaluation Pipeline of the Proposed GAN Model",
+  "nodes": [
+    {
+      "id": "data",
+      "label": "Local CIFAR-10\\nreal images",
+      "x": 105,
+      "y": 120,
+      "w": 150,
+      "h": 70,
+      "fill": "#E8F3FF",
+      "stroke": "#3B82F6"
+    },
+    {
+      "id": "noise",
+      "label": "Latent noise\\nz ~ N(0, I)",
+      "x": 105,
+      "y": 260,
+      "w": 150,
+      "h": 70,
+      "fill": "#F0FDF4",
+      "stroke": "#16A34A"
+    },
+    {
+      "id": "generator",
+      "label": "Generator G\\nDCGAN, ch=160",
+      "x": 310,
+      "y": 260,
+      "w": 170,
+      "h": 80,
+      "fill": "#F0FDF4",
+      "stroke": "#16A34A"
+    },
+    {
+      "id": "fake",
+      "label": "Generated images\\nG(z)",
+      "x": 520,
+      "y": 260,
+      "w": 160,
+      "h": 70,
+      "fill": "#FFF7ED",
+      "stroke": "#F97316"
+    },
+    {
+      "id": "disc",
+      "label": "Discriminator D\\nreal/fake score",
+      "x": 520,
+      "y": 120,
+      "w": 170,
+      "h": 80,
+      "fill": "#FEF2F2",
+      "stroke": "#DC2626"
+    },
+    {
+      "id": "loss",
+      "label": "BCE adversarial\\nloss",
+      "x": 735,
+      "y": 190,
+      "w": 160,
+      "h": 70,
+      "fill": "#FAF5FF",
+      "stroke": "#9333EA"
+    },
+    {
+      "id": "optim",
+      "label": "Adam updates\\nG and D",
+      "x": 735,
+      "y": 330,
+      "w": 160,
+      "h": 70,
+      "fill": "#F8FAFC",
+      "stroke": "#475569"
+    },
+    {
+      "id": "ema",
+      "label": "EMA generator\\nfor comparison",
+      "x": 520,
+      "y": 420,
+      "w": 170,
+      "h": 70,
+      "fill": "#ECFEFF",
+      "stroke": "#0891B2"
+    },
+    {
+      "id": "ckpt",
+      "label": "Checkpoint\\nraw G + EMA G",
+      "x": 930,
+      "y": 260,
+      "w": 160,
+      "h": 80,
+      "fill": "#F8FAFC",
+      "stroke": "#334155"
+    },
+    {
+      "id": "sample",
+      "label": "Sampling\\n64-image grid",
+      "x": 930,
+      "y": 410,
+      "w": 160,
+      "h": 70,
+      "fill": "#FFF7ED",
+      "stroke": "#F97316"
+    },
+    {
+      "id": "eval",
+      "label": "Evaluation\\nFID / IS",
+      "x": 930,
+      "y": 110,
+      "w": 160,
+      "h": 70,
+      "fill": "#EEF2FF",
+      "stroke": "#4F46E5"
+    }
+  ],
+  "edges": [
+    {
+      "from": "noise",
+      "to": "generator",
+      "label": "input"
+    },
+    {
+      "from": "generator",
+      "to": "fake",
+      "label": "synthesize"
+    },
+    {
+      "from": "data",
+      "to": "disc",
+      "label": "real batch"
+    },
+    {
+      "from": "fake",
+      "to": "disc",
+      "label": "fake batch"
+    },
+    {
+      "from": "disc",
+      "to": "loss",
+      "label": "scores"
+    },
+    {
+      "from": "loss",
+      "to": "optim",
+      "label": "gradients"
+    },
+    {
+      "from": "optim",
+      "to": "generator",
+      "label": "update G",
+      "style": "dashed"
+    },
+    {
+      "from": "optim",
+      "to": "disc",
+      "label": "update D",
+      "style": "dashed"
+    },
+    {
+      "from": "generator",
+      "to": "ema",
+      "label": "moving average",
+      "style": "dashed"
+    },
+    {
+      "from": "generator",
+      "to": "ckpt",
+      "label": "save raw G"
+    },
+    {
+      "from": "ema",
+      "to": "ckpt",
+      "label": "save EMA G"
+    },
+    {
+      "from": "ckpt",
+      "to": "eval",
+      "label": "5000 samples"
+    },
+    {
+      "from": "ckpt",
+      "to": "sample",
+      "label": "visualize"
+    }
+  ],
+  "groups": [
+    {
+      "label": "Training loop",
+      "x": 205,
+      "y": 55,
+      "w": 620,
+      "h": 380,
+      "fill": "#FFFFFF",
+      "stroke": "#CBD5E1"
+    },
+    {
+      "label": "Model selection and reporting",
+      "x": 830,
+      "y": 55,
+      "w": 250,
+      "h": 425,
+      "fill": "#FFFFFF",
+      "stroke": "#CBD5E1"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+epoch,d_loss,g_loss,seconds,gan_type
+1,1.724756,0.207200,8.85,conditional-resnet-hinge

@@ -1,0 +1,22 @@
+{
+  "data_dir": "/data1/nHome1/xieqihu/dataset/CV/CIFAR10_data/cifar-10-batches-py",
+  "out_dir": "outputs/wgan_gp_gpu",
+  "gan_type": "wgan-gp",
+  "epochs": 50,
+  "batch_size": 128,
+  "latent_dim": 128,
+  "g_channels": 64,
+  "d_channels": 64,
+  "lr": 0.0002,
+  "beta1": 0.5,
+  "beta2": 0.999,
+  "n_critic": 5,
+  "gp_lambda": 10.0,
+  "num_workers": 2,
+  "sample_every": 1,
+  "checkpoint_every": 5,
+  "max_train_items": null,
+  "fast_dev_run": false,
+  "device": "cuda",
+  "seed": 42
+}
